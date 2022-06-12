@@ -1,2 +1,2 @@
-# teste
-testando as modificações.
+# Inclusão de aulas
+Foram feitas inclusão/modificação de 5 aulas.
