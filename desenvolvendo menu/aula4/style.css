@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif; /*nesse bloco, fazemos o estilo genérico para toda a página, incluindo (h1, main, h2 e as divs).*/
+}
+
+.wrapper {
+    background-color: rgb(53, 53, 53); /*aqui fazemos alterções que estão contido (h2 e as divs) nessa classe*/
+    height: 100vh; /*indica 100% de altura v de visualização e h de altura*/
+    width: 100vw; /*indica 100% de largura v de visualização e w de largura*/
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+}
+
+.chatbot {
+    height: 4rem;
+    width: 8rem;
+    border-radius: 34px;
+    border: 4px solid #949494;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+    transform: translateY(0);  
+    animation: chatTranslate 2s ease-in-out infinite;  
+}
+
+.chatbot::before {
+    content: '';
+    height: 0;
+    width: 0;
+    position: absolute;
+    bottom: -1.3rem;        /*o número negativo faz com que o triâgulo fique abaixo do box ou a margem externa.*/
+    left: 2rem;
+    border-left: 2px solid transparent;
+    border-right: 17px solid transparent;
+    border-top: 17px solid #949494; /*as últimas três linhas formatam o triângulo à margem do box, podemos trocar as cores nas duas primeiras linhas para melhor visualização*/
+}
+
+.chatbot__loading { /*esse bloco formam as 3 bolinhas ou os 3 pontinhos no box*/
+    height: 10px; /*define altura*/
+    width: 10px; /*define largura*/
+    border-radius: 50%; /*define o formato das bolinhas*/
+    background-color: #949494; /*define a cor das bolinhas*/
+    transform: scale(1); /*o número dentro do parêntese define o tamanho das 3 bolinhas dentro do box*/
+}
+/*os 3 blocos abaixo animam as bolinhas no box, cada bloco uma bolinha*/
+.chatbot__loading:nth-child(1) {
+    animation: pulse 1.5s ease-in-out infinite;
+    
+}
+
+.chatbot__loading:nth-child(2) {
+    animation: pulse 1.5s ease-in-out infinite;
+    animation-delay: 0.2s;
+}
+
+.chatbot__loading:nth-child(3) {
+    animation: pulse 1.5s ease-in-out infinite;
+    animation-delay: 0.4s;
+}
+
+@keyframes pulse {/*definimos essa linha aqui no css.*/
+    0% {
+        transform: scale(1)
+    }
+    50% {
+        transform: scale(1.5)
+    }
+    100% {
+        transform: scale(1)
+    }
+}
+
+@keyframes chatTranslate { /*definimos essa linha aqui no css.*/
+    0% {
+        transform: translateY(0)
+    }
+    50% {
+        transform: translateY(15px)
+    }
+    100% {
+        transform: translateY(0)
+    }
+}
